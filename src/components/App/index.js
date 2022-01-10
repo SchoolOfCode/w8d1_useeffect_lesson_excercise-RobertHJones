@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import List from "../List";
 import Input from "../Input";
@@ -6,6 +6,12 @@ import Input from "../Input";
 import "./App.css";
 
 function App() {
+  const [numthings, setNumthings] = useState("");
+
+  useEffect(() => {
+    document.title = numthings + " things to do...";
+  }, [numthings]);
+
   console.log("App rerender");
   const [toDos, setToDos] = useState(["test"]);
 
@@ -17,6 +23,7 @@ function App() {
   function addToDo(text) {
     console.log("%cadd to do ", "color:lightgreen");
     setToDos([...toDos, text]);
+    setNumthings(toDos.length);
   }
 
   return (
