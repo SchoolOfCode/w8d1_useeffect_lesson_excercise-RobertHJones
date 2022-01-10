@@ -23,7 +23,7 @@ function App() {
   function addToDo(text) {
     console.log("%cadd to do ", "color:lightgreen");
     setToDos([...toDos, text]);
-    setNumthings(toDos.length);
+    setNumthings(toDos.length + 1);
   }
 
   return (
